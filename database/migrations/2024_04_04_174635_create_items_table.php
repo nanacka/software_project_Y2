@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('items', function (Blueprint $table) {
+            //(title, description, image, dimensions, materials, make(handmade, store-bought) 
             $table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->text('dimensions');
+            $table->text('materials');
+            $table->enum('make', ['handmade', 'store-bought']);
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
