@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');        
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();                  
+            $table->text('description');
+            $table->text('dimensions');
+            $table->text('materials');
+            $table->enum('make', ['handmade', 'store-bought']);
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
