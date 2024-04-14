@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,15 +29,23 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    //Route::get('/home', [PostController::class, 'index'])->name('user.posts.index');
+    //Route::get('/home', [PostController::class, 'index'])->name('user.posts.index');
+
+    Route::get('/posts/{id}',       [PostController::class, 'show'])->name('posts.show');
+    //Route::get('/posts/{id}/edit',  [PostController::class, 'edit'])->name('posts.edit');
+    //Route::put('/posts/{id}',       [PostController::class, 'update'])->name('posts.update');
+    //Route::delete('/posts/{id}',    [PostController::class, 'destroy'])->name('posts.destroy');
+
+    Route::get('/user/{id}',       [PostController::class, 'showByUser'])->name('account.show');
+
+
     //Route::get('/user/home', [PostController::class, 'index']);
     //Route::resource('/posts', PostController::class)
     //->middleware(['auth'])
     //->only('index');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/home', [PostController::class, 'index'])->name('user.posts.index');
-});
 
 //Route::get('/home', function () {
 //    return view('home');

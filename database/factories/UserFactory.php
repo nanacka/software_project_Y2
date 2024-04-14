@@ -31,8 +31,24 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             //'about' => fake()->paragraph(),
             //'preferences' => fake()->paragraph()
+
         ];
+
     }
+
+    public function felix()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'name' => 'felix',
+                'email' => 'N00222614@iadt.ie',
+                'email_verified_at' => now(),
+                'password' => Hash::make('n00222614'),
+                'remember_token' => Str::random(10),
+            ];
+        });
+    }
+
 
     /**
      * Indicate that the model's email address should be unverified.

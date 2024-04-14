@@ -27,9 +27,18 @@ class PostController extends Controller
 
         
 
-        return view('user.posts.show', [
+        return view('user.show', [
             'post' => $post
         ]);
+        
+    }
+
+    public function showByUser(string $userId)
+    {
+
+        $posts = Post::where('user_id', $userId)->paginate(10);
+        
+        return view('user.account')->with('posts', $posts);
         
     }
 

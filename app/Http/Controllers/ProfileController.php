@@ -21,6 +21,16 @@ class ProfileController extends Controller
         ]);
     }
 
+    //public function show(string $id){
+    //    $user = User::findOrFail($id);
+    //
+    //    
+    //
+    //    return view('user.account', [
+    //        'user' => $request->user()
+    //    ]);
+    //}
+
     /**
      * Update the user's profile information.
      */

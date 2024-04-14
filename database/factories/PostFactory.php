@@ -9,6 +9,8 @@ use Illuminate\Support\Str;
  */
 class PostFactory extends Factory
 {
+
+
     /**
      * Define the model's default state.
      *
@@ -16,13 +18,16 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+
+        $randId = random_int(1,10);
+
         return [
             'title' => fake()->text(10),
             'description' => fake()->text(100),
             'dimensions' => fake()->text(100),
             'materials' => fake()->text(100),
             'make' => 'handmade',
-            'user_id'=> 1
+            'user_id'=> $randId
             //
         ];
     }
