@@ -17,13 +17,18 @@ class Post extends Model
         'make',
         'user_id',
         // 'tag',
-        'post_image'
+        //'post_image'
     ];
 
 
     public function user(){
         return $this->hasOne(User::class);
     }
+
+    public function image(){
+        return $this->hasMany(Image::class);
+    }
+    
     
     //public function comments(){
     //    return $this->hasMany(Comment::class);

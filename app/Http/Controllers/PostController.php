@@ -42,4 +42,34 @@ class PostController extends Controller
         
     }
 
+    public function store(Request $request)
+    {
+        // Validate the incoming request
+        $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            // Add validation rules for image fields if needed
+        ]);
+
+        // Create a new post record in the database
+        $post = new Post();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->save();
+
+        // Store the image if it exists in the request
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images');
+            $image = new Image();
+            $image->path = $path;
+            $image->mime_type = $request->file('image')->getMimeType();
+            $image->post_id = $post->id; // Assuming there's a foreign key relation to associate the image with the post
+            $image->save();
+        }
+
+        // Return a response indicating success
+        return response()->json(['message' => 'Post (and image) stored successfully'], 201);
+    }
+}
+
 }

@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     //Route::get('/home', [PostController::class, 'index'])->name('user.posts.index');
     //Route::get('/home', [PostController::class, 'index'])->name('user.posts.index');
+    Route::get('/home',       [PostController::class, 'index'])->name('posts.index');
 
     Route::get('/posts/{id}',       [PostController::class, 'show'])->name('posts.show');
     //Route::get('/posts/{id}/edit',  [PostController::class, 'edit'])->name('posts.edit');
