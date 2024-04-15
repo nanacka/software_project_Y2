@@ -17,11 +17,15 @@ class ImageFactory extends Factory
     public function definition(): array
     {
 
-        $randId = random_int(1,10);
+        //$randId = random_int(1,10);
 
         return [
-            'post_id'=> $randId
+            //'post_id'=> $randId
             //
+
+
         ];
+
+
     }
 }

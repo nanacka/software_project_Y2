@@ -71,5 +71,3 @@ class PostController extends Controller
         return response()->json(['message' => 'Post (and image) stored successfully'], 201);
     }
 }
-
-}

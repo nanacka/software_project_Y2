@@ -14,12 +14,21 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        // Define the path to the image
+
         $imagePath = 'cover.png'; // Adjust the path if necessary
-        
-        // Create a new image record in the images table
+        $randId = random_int(1,10);
+
+
         Image::create([
-            'image_path' => $imagePath,
+            'post_id'=> $randId,
+            'image' => $imagePath
         ]);
+
+        //\App\Models\Image::factory(50)->create();
+        // Define the path to the image
+
+
+
+
     }
 }
