@@ -35,13 +35,21 @@ class PostController extends Controller
         
     }
 
-    public function showByUser(string $id)
+    public function showByUser(string $userId)
     {
 
-        $posts = Post::where('user_id', $id)->paginate(10);
+        $posts = Post::where('user_id', $userId)->paginate(10);
         
-        return view('user.account')->with(['userId' => $id,'posts'=> $posts]);
+        return view('user.account')->with('posts', $posts);
         
+    }
+
+    public function showByAuthUser()
+    {
+        $userId = Auth::id();
+        $posts = Post::where('user_id', $userId)->paginate(10);
+
+        return view('user.userProfile')->with(['userId' => $userId, 'posts' => $posts]);
     }
 
     public function store(Request $request)

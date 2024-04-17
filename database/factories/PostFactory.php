@@ -31,4 +31,21 @@ class PostFactory extends Factory
             //
         ];
     }
+
+    public function felix()
+    {
+
+        return $this->state(function (array $attributes) {
+
+        return [
+            'title' => fake()->text(10),
+            'description' => fake()->text(100),
+            'dimensions' => fake()->text(100),
+            'materials' => fake()->text(100),
+            'make' => 'handmade',
+            'user_id'=> 11,
+            //
+        ];
+    });
+    }
 }

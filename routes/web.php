@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/home',       [PostController::class, 'index'])->name('posts.index');
 
     Route::get('/posts/{id}',       [PostController::class, 'show'])->name('posts.show');
+    Route::get('/account',       [PostController::class, 'showByAuthUser'])->name('userProfile.show');
+
     //Route::get('/posts/{id}/edit',  [PostController::class, 'edit'])->name('posts.edit');
     //Route::put('/posts/{id}',       [PostController::class, 'update'])->name('posts.update');
     //Route::delete('/posts/{id}',    [PostController::class, 'destroy'])->name('posts.destroy');
