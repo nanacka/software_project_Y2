@@ -16,7 +16,9 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::paginate(10);
+        //$posts = Post::paginate(10);
+        $posts = Post::all();
+
         return view('user.index')->with('posts', $posts);
     }
 
@@ -33,12 +35,12 @@ class PostController extends Controller
         
     }
 
-    public function showByUser(string $userId)
+    public function showByUser(string $id)
     {
 
-        $posts = Post::where('user_id', $userId)->paginate(10);
+        $posts = Post::where('user_id', $id)->paginate(10);
         
-        return view('user.account')->with('posts', $posts);
+        return view('user.account')->with(['userId' => $id,'posts'=> $posts]);
         
     }
 
